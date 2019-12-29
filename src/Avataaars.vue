@@ -145,7 +145,7 @@ export default {
           seed = (seed * 9301 + 49297) % 233280;
           var rnd = seed / 233280;
 
-          return Math.round((min + rnd * (max - min)) * 100)/100;
+          return Math.floor(Math.round((min + rnd * (max - min)) * 100) / 100);
         },
         getRandomChoice (items) {
           const itemsLength = Object.entries(items).length
