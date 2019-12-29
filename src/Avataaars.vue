@@ -140,9 +140,9 @@ export default {
      },
     methods: {
         randomBySeed(seed) {
-          let max = 12000;
+          let max = 120000;
           let min = 0;
-          let seed = (seed * 9301 + 49297) % 233280;
+          seed = (seed * 9301 + 49297) % 233280;
           var rnd = seed / 233280;
 
           return min + rnd * (max - min);
