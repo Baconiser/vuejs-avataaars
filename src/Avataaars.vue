@@ -113,6 +113,10 @@ import { GraphicShirtTypes } from './assetsTypes/graphic-shirt'
 
 export default {
      props: {
+          seed: {
+            type: Number,
+            default: null
+          },
          isCircle: {
             type: Boolean,
             default: true
@@ -135,9 +139,21 @@ export default {
         facialHairColor: { type: String, default: 'random' },
      },
     methods: {
+        randomBySeed(seed) {
+          let max = 12000;
+          let min = 0;
+          let seed = (seed * 9301 + 49297) % 233280;
+          var rnd = seed / 233280;
+
+          return min + rnd * (max - min);
+        },
         getRandomChoice (items) {
           const itemsLength = Object.entries(items).length
-          return Object.entries(items)[Math.floor((Math.random()*(itemsLength)))][1]
+          var random = Math.floor((Math.random()*(itemsLength)));
+          if(this.seed) {
+            random = this.randomBySeed() % itemsLength;
+          }
+          return Object.entries(items)[random][1]
         }
     },
     data () {

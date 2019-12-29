@@ -1,5 +1,5 @@
 import Avataaars from "./Avataaars.vue";
-
+import assets from './assetsTypes';
 export default {
  install(Vue, options) {
   // Let's register our component globally
@@ -7,3 +7,5 @@ export default {
   Vue.component("avataaars", Avataaars);
  }
 };
+
+export { assets };
