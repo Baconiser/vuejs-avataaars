@@ -91,7 +91,7 @@
                 </g>
             </svg>
             <svg :style="cssVars" v-html="topType === 'random' ? getRandomChoice(topTypes) : topTypes[topType]"></svg>
-            <svg :style="cssVars" v-html="facialHairType === 'random' ? getRandomChoice(facialHairTypes) : facialHairTypes[facialHairType]"></svg>
+            <svg :style="cssVars" v-html="facialHairType === 'random' ? getRandomChoice(facialHairTypes) : facialHairTypes[facialHairType]" v-if="allowBeard"></svg>
             <svg v-html="accessoriesType === 'random' ? getRandomChoice(accessoriesTypes) : accessoriesTypes[accessoriesType]"></svg>
           </g>
         </g>
@@ -113,6 +113,10 @@ import { GraphicShirtTypes } from './assetsTypes/graphic-shirt'
 
 export default {
      props: {
+          allowBeard: {
+            type: Boolean,
+            default: true
+          },
           seed: {
             type: Number,
             default: null
