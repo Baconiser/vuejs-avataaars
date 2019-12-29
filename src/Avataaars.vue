@@ -151,7 +151,7 @@ export default {
           const itemsLength = Object.entries(items).length
           var random = Math.floor((Math.random()*(itemsLength)));
           if(this.seed) {
-            random = this.randomBySeed() % itemsLength;
+            random = this.randomBySeed(this.seed) % itemsLength;
           }
           return Object.entries(items)[random][1]
         }
